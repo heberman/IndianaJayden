@@ -158,6 +158,9 @@ MonoBehaviour:
   rigidBody: {fileID: 283037605}
   runSpeed: 60
   horizontalMove: 0
+  verticalMove: 0
+  grav: 5
+  jumpReset: 0
 --- !u!212 &283037604
 SpriteRenderer:
   m_ObjectHideFlags: 0

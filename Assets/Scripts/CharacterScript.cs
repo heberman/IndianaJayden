@@ -9,12 +9,16 @@ public class CharacterScript : MonoBehaviour
     public float runSpeed = 60f;
     public float horizontalMove = 0f;
     private bool facingRight = false;
+    public float verticalMove = 0f;
+    public float grav = 0f;
+    public bool jumpReset;
 
 	
     // Start is called before the first frame update
     void Start()
     {
-	rigidBody = GetComponent<Rigidbody2D>();
+	    rigidBody = GetComponent<Rigidbody2D>();
+        jumpReset = true;
         
     }
 
@@ -22,6 +26,11 @@ public class CharacterScript : MonoBehaviour
     void Update()
     {
         horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
+        if (Input.GetKeyDown(KeyCode.UpArrow) && jumpReset)
+        {
+            rigidBody.velocity = Vector2.up * grav;
+        }
+        
 
         if (horizontalMove>0 && facingRight)
         {
