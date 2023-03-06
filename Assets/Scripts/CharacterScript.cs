@@ -41,27 +41,26 @@ public class CharacterScript : MonoBehaviour
             jumpReset = false;
         }
 
-        if(Input.GetKeyDown(KeyCode.E) && isPresent)
+        if(Input.GetKeyDown(KeyCode.E))
         {
             present.SetActive(false);
+            past.SetActive(false);
             future.SetActive(true);
-            isPresent = false;
         }
 
-        if(Input.GetKeyDown(KeyCode.W) && !isPresent)
+        if(Input.GetKeyDown(KeyCode.W))
         {
             future.SetActive(false);
             past.SetActive(false);
             present.SetActive(true);
-            isPresent = true;
 
         }
 
         if (Input.GetKeyDown(KeyCode.Q) && isPresent)
         {
             present.SetActive(false);
+            future.SetActive(false);
             past.SetActive(true);
-            isPresent = false;
 
         }
 
