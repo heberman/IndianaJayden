@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BlockScript : MonoBehaviour
+public class CharacterScript : MonoBehaviour
 {
     public Rigidbody2D rigidBody;
 
