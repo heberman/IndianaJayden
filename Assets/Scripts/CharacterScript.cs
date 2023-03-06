@@ -29,6 +29,7 @@ public class CharacterScript : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.UpArrow) && jumpReset)
         {
             rigidBody.velocity = Vector2.up * grav;
+            jumpReset = false;
         }
         
 
@@ -54,5 +55,13 @@ public class CharacterScript : MonoBehaviour
         Vector3 scale = transform.localScale;
         scale.x *= -1;
         transform.localScale = scale;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Ground")
+        {
+            jumpReset = true;
+        }
     }
 }
