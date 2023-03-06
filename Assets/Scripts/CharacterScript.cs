@@ -13,12 +13,21 @@ public class CharacterScript : MonoBehaviour
     public float grav = 0f;
     public bool jumpReset;
 
+    //Q = Past, W = Present, E = Future
+    public GameObject present;
+    public GameObject future;
+    public GameObject past;
+    public bool isPresent;
+
 	
     // Start is called before the first frame update
     void Start()
     {
 	    rigidBody = GetComponent<Rigidbody2D>();
         jumpReset = true;
+        future.SetActive(false);
+        past.SetActive(false);
+        isPresent = true;
         
     }
 
@@ -31,7 +40,30 @@ public class CharacterScript : MonoBehaviour
             rigidBody.velocity = Vector2.up * grav;
             jumpReset = false;
         }
-        
+
+        if(Input.GetKeyDown(KeyCode.E) && isPresent)
+        {
+            present.SetActive(false);
+            future.SetActive(true);
+            isPresent = false;
+        }
+
+        if(Input.GetKeyDown(KeyCode.W) && !isPresent)
+        {
+            future.SetActive(false);
+            past.SetActive(false);
+            present.SetActive(true);
+            isPresent = true;
+
+        }
+
+        if (Input.GetKeyDown(KeyCode.Q) && isPresent)
+        {
+            present.SetActive(false);
+            past.SetActive(true);
+            isPresent = false;
+
+        }
 
         if (horizontalMove>0 && facingRight)
         {
