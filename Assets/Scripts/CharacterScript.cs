@@ -56,7 +56,7 @@ public class CharacterScript : MonoBehaviour
 
         }
 
-        if (Input.GetKeyDown(KeyCode.Q) && isPresent)
+        if (Input.GetKeyDown(KeyCode.Q))
         {
             present.SetActive(false);
             future.SetActive(false);
