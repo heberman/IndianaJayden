@@ -117,5 +117,18 @@ public class CharacterScript : MonoBehaviour
         {
             jumpReset = true;
         }
+        if (collision.gameObject.name == "Trap")
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            //collision.gameObject.GetComponent<TrapScript>().isTouching = true; //ignore for now
+        }
     }
+
+    //private void OnCollisionExit2D(Collision2D collision)
+    //{
+    //    if (collision.gameObject.name == "Trap")
+    //    {
+    //        //collision.gameObject.GetComponent<TrapScript>().isTouching = false; 
+    //    }
+    //} ignore for now
 }
