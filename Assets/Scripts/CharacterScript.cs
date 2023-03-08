@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CharacterScript : MonoBehaviour
 {
@@ -41,6 +42,9 @@ public class CharacterScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(rigidBody.position.y < -10   ){
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
         horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
         grapple = grappleScript.grappling;
         if (Input.GetKeyDown(KeyCode.UpArrow) && jumpReset)
