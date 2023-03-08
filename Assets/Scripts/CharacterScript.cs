@@ -6,7 +6,14 @@ public class CharacterScript : MonoBehaviour
 {
     public Rigidbody2D rigidBody;
 
-    public float runSpeed = 60f;
+    public GrappleScript grappleScript;
+    public bool grapple;
+
+    public float acceleration = 1f;
+    public float decceleration = -1f;
+    public float runSpeed = 0.001f;
+
+    //public float runSpeed = 60f;
     public float horizontalMove = 0f;
     private bool facingRight = false;
     public float verticalMove = 0f;
@@ -35,6 +42,7 @@ public class CharacterScript : MonoBehaviour
     void Update()
     {
         horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
+        grapple = grappleScript.grappling;
         if (Input.GetKeyDown(KeyCode.UpArrow) && jumpReset)
         {
             rigidBody.velocity = Vector2.up * grav;
@@ -76,7 +84,18 @@ public class CharacterScript : MonoBehaviour
 
     public void FixedUpdate()
     {
-        rigidBody.velocity = new Vector2(horizontalMove * Time.fixedDeltaTime, rigidBody.velocity.y);
+        if (!grapple) {
+            rigidBody.velocity = new Vector2(horizontalMove * Time.fixedDeltaTime, rigidBody.velocity.y);
+        }
+        //ignore this for now, I tried to make movement work when grappling
+
+        //else
+        //{
+        //  float speedDif = horizontalMove - rigidBody.velocity.x;
+        //    float acc = (Mathf.Abs(horizontalMove) > 0.01f) ? acceleration : decceleration;
+        //    float movement = Mathf.Pow(Mathf.Abs(speedDif) * acc, 0.9f) * Mathf.Sign(speedDif);
+        //    rigidBody.AddForce(movement * Vector2.right);
+        //}
     }
 
     public void Flip()
