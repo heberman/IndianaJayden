@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CharacterScript : MonoBehaviour
 {
@@ -22,10 +23,13 @@ public class CharacterScript : MonoBehaviour
     public GameObject past;
     public bool isPresent;
 
+    private Animator animator;
+
 	
     // Start is called before the first frame update
     void Start()
     {
+        animator = GetComponent<Animator>();
 	    rigidBody = GetComponent<Rigidbody2D>();
         jumpReset = true;
         future.SetActive(false);
@@ -37,6 +41,11 @@ public class CharacterScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        animator.SetBool("isRunning", Mathf.Abs(rigidBody.velocity.x) > 0.01f);
+
+        if(rigidBody.position.y < -10   ){
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
         horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
         grapple = grappleScript.grappling;
         if (Input.GetKeyDown(KeyCode.UpArrow) && jumpReset)
@@ -108,5 +117,18 @@ public class CharacterScript : MonoBehaviour
         {
             jumpReset = true;
         }
+        if (collision.gameObject.name == "Trap")
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            //collision.gameObject.GetComponent<TrapScript>().isTouching = true; //ignore for now
+        }
     }
+
+    //private void OnCollisionExit2D(Collision2D collision)
+    //{
+    //    if (collision.gameObject.name == "Trap")
+    //    {
+    //        //collision.gameObject.GetComponent<TrapScript>().isTouching = false; 
+    //    }
+    //} ignore for now
 }
