@@ -85,6 +85,10 @@ public class CharacterScript : MonoBehaviour
         {
             Flip();
         }
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            SceneManager.LoadScene("Start Menu");
+        } 
     }
 
     public void FixedUpdate()
