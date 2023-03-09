@@ -27,10 +27,13 @@ public class CharacterScript : MonoBehaviour
     public GameObject past;
     public bool isPresent;
 
+    private Animator animator;
+
 	
     // Start is called before the first frame update
     void Start()
     {
+        animator = GetComponent<Animator>();
 	    rigidBody = GetComponent<Rigidbody2D>();
         jumpReset = true;
         future.SetActive(false);
@@ -42,6 +45,8 @@ public class CharacterScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        animator.SetBool("isRunning", Mathf.Abs(rigidBody.velocity.x) > 0.01f);
+
         if(rigidBody.position.y < -10   ){
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
