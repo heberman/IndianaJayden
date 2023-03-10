@@ -632,15 +632,17 @@ MonoBehaviour:
     Left/Right/Jump
     = [Arrow Keys]
 
-    Grapple = [todo]
+    Past/Present/Future  = [Q/W/E]
+
+    Grapple = [G]
 
 
     DEBUG:
 
-    Set Present = W
-
     Set
-    Future = E
+    Present = W
+
+    Set Future = E
 
     Set Past = Q'
 --- !u!222 &1366454458
