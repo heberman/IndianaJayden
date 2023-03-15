@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
+using UnityEngine.UI;
 public class CharacterScript : MonoBehaviour
 {
     public Rigidbody2D rigidBody;
@@ -24,6 +24,9 @@ public class CharacterScript : MonoBehaviour
     public bool isPresent;
 
     private Animator animator;
+    
+    public Image healthBar;
+    public float health = 100f;
 
 	
     // Start is called before the first frame update
@@ -128,6 +131,14 @@ public class CharacterScript : MonoBehaviour
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             //collision.gameObject.GetComponent<TrapScript>().isTouching = true; //ignore for now
         }
+        if(collision.gameObject.tag == "Dart"){
+            takeDamage(10);
+        }
+    }
+
+    private void takeDamage(float damage){
+        health -= damage;
+        healthBar.fillAmount = health/100;
     }
 
     //private void OnCollisionExit2D(Collision2D collision)
