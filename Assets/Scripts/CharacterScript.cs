@@ -41,7 +41,7 @@ public class CharacterScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        animator.SetBool("isRunning", Mathf.Abs(rigidBody.velocity.x) > 0.01f);
+        animator.SetBool("isRunning", (Mathf.Abs(rigidBody.velocity.x) > 0.01f && !animator.GetBool("isGrappling") && !animator.GetBool("isJumping")));
 
         if(rigidBody.position.y < -10   ){
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
@@ -50,6 +50,7 @@ public class CharacterScript : MonoBehaviour
         grapple = grappleScript.grappling;
         if (Input.GetKeyDown(KeyCode.UpArrow) && jumpReset)
         {
+            animator.SetBool("isJumping", true);
             rigidBody.velocity = Vector2.up * grav;
             jumpReset = false;
         }
@@ -120,6 +121,7 @@ public class CharacterScript : MonoBehaviour
         if (collision.gameObject.tag == "Ground")
         {
             jumpReset = true;
+            animator.SetBool("isJumping", false);
         }
         if (collision.gameObject.name == "Trap")
         {
