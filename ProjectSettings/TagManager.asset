@@ -8,6 +8,7 @@ TagManager:
   - Anchor
   - Dart
   - Character
+  - Key
   layers:
   - Default
   - TransparentFX
