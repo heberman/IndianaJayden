@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Ground
   - Anchor
+  - Dart
   layers:
   - Default
   - TransparentFX
