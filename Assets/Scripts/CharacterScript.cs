@@ -27,7 +27,6 @@ public class CharacterScript : MonoBehaviour
     
     public Image healthBar;
     public float health = 100f;
-
 	
     // Start is called before the first frame update
     void Start()
@@ -129,8 +128,8 @@ public class CharacterScript : MonoBehaviour
         if (collision.gameObject.name == "Trap")
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-            //collision.gameObject.GetComponent<TrapScript>().isTouching = true; //ignore for now
         }
+
         if(collision.gameObject.tag == "Dart"){
             takeDamage(10);
         }

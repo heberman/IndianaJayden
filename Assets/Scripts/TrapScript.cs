@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class TrapScript : MonoBehaviour
 {
-    //public bool isTouching;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,12 +16,4 @@ public class TrapScript : MonoBehaviour
         
     }
 
-    //private void OnCollisionStay2D(Collision2D collision)
-    //{
-    //    if (isTouching && collision.gameObject.tag == "Ground")
-    //    {
-    //        Destroy(collision.gameObject);
-    //    }
-
-    //} -- in progress
 }
