@@ -154,10 +154,10 @@ MonoBehaviour:
   rigidBody: {fileID: 6052385748734666399}
   grappleScript: {fileID: 960331631}
   grapple: 0
-  runSpeed: 125
+  runSpeed: 200
   horizontalMove: 0
   verticalMove: 0
-  grav: 5
+  grav: 6
   jumpReset: 0
   present: {fileID: 0}
   future: {fileID: 0}
@@ -182,7 +182,7 @@ DistanceJoint2D:
   m_Anchor: {x: 0, y: 0}
   m_ConnectedAnchor: {x: 0, y: 0}
   m_AutoConfigureDistance: 1
-  m_Distance: 9.54679
+  m_Distance: 9.552068
   m_MaxDistanceOnly: 1
 --- !u!120 &960331633
 LineRenderer:

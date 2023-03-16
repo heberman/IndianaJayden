@@ -20,7 +20,7 @@ public class GrappleScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.G) && anchor != null)
+        if (Input.GetKeyDown(KeyCode.Space) && anchor != null)
         {
             lineRender.SetPosition(0, new Vector3(transform.position.x, transform.position.y + 0.43f, transform.position.z));
             lineRender.SetPosition(1, anchor.transform.position);
@@ -31,7 +31,7 @@ public class GrappleScript : MonoBehaviour
             animator.SetBool("isGrappling", true);
             animator.SetBool("isJumping", false);
         }
-        else if (Input.GetKeyUp(KeyCode.G))
+        else if (Input.GetKeyUp(KeyCode.Space))
         {
             distanceJoint.enabled = false;
             lineRender.enabled = false;
