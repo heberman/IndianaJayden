@@ -607,7 +607,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 28
+    m_FontSize: 20
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -632,17 +632,11 @@ MonoBehaviour:
     Left/Right/Jump
     = [Arrow Keys]
 
-    Grapple = [todo]
+    Past/Present/Future  = [Q/W/E]
 
+    Grapple = [G]
 
-    DEBUG:
-
-    Set Present = W
-
-    Set
-    Future = E
-
-    Set Past = Q'
+'
 --- !u!222 &1366454458
 CanvasRenderer:
   m_ObjectHideFlags: 0
