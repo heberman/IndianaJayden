@@ -46,7 +46,7 @@ public class GrappleScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Anchor")
+        if (collision.gameObject.tag == "Anchor" || collision.gameObject.tag == "AnchorPast" || collision.gameObject.tag == "AnchorPresent")
         {
             anchor = collision.gameObject;
         }
@@ -54,7 +54,7 @@ public class GrappleScript : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Anchor")
+        if (collision.gameObject.tag == "Anchor" || collision.gameObject.tag == "AnchorPast" || collision.gameObject.tag == "AnchorPresent")
         {
             anchor = null;
         }

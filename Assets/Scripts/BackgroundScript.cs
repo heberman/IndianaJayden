@@ -6,14 +6,12 @@ public class BackgroundScript : MonoBehaviour
 {
     public Sprite pastSprite;
     public Sprite presentSprite;
-    public Sprite futureSprite;
 
     public GameObject present;
     public GameObject past;
 
     public AudioClip pastMusic;
     public AudioClip presentMusic;
-    public AudioClip futureMusic;
     // Start is called before the first frame update
 
     private Transform cameraTransform;

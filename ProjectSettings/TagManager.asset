@@ -9,6 +9,12 @@ TagManager:
   - Dart
   - Character
   - Key
+  - Past
+  - Present
+  - AnchorPresent
+  - AnchorPast
+  - KeyPresent
+  - KeyPast
   layers:
   - Default
   - TransparentFX

@@ -10,6 +10,11 @@ public class CharacterScript : MonoBehaviour
     public GrappleScript grappleScript;
     public bool grapple;
 
+    public GameObject anchorPres;
+    public GameObject anchorPast;
+
+    public GameObject key;
+
     public float runSpeed = 60f;
     public float horizontalMove = 0f;
     private bool facingRight = false;
@@ -17,10 +22,9 @@ public class CharacterScript : MonoBehaviour
     public float grav = 0f;
     public bool jumpReset;
 
-    //Q = Past, W = Present, E = Future
+    //Q = Time travel
     public GameObject present;
     public GameObject past;
-    public bool isPresent;
 
     private Animator animator;
     
@@ -34,7 +38,14 @@ public class CharacterScript : MonoBehaviour
 	    rigidBody = GetComponent<Rigidbody2D>();
         jumpReset = true;
         past.SetActive(false);
-        isPresent = true;
+        anchorPast = GameObject.FindGameObjectWithTag("AnchorPast");
+        anchorPast.SetActive(false);
+        key = GameObject.Find("Key");
+        if (key.CompareTag("KeyPast"))
+        {
+            key.SetActive(false);
+        }
+        
         
     }
 
@@ -43,7 +54,7 @@ public class CharacterScript : MonoBehaviour
     {
         animator.SetBool("isRunning", (Mathf.Abs(rigidBody.velocity.x) > 0.01f && !animator.GetBool("isGrappling") && !animator.GetBool("isJumping")));
 
-        if(rigidBody.position.y < -10   ){
+        if(rigidBody.position.y < -10){
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
         horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
@@ -58,15 +69,45 @@ public class CharacterScript : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            if (present.activeSelf)
+            if (present.activeSelf && key.CompareTag("KeyPresent"))//turn to past
             {
                 present.SetActive(false);
                 past.SetActive(true);
+                anchorPast.SetActive(true) ;
+                key.SetActive(false);
             }
-            else if (past.activeSelf)
+            else if (past.activeSelf && key.CompareTag("KeyPresent"))//turn to present
             {
                 past.SetActive(false);
                 present.SetActive(true);
+                anchorPast.SetActive(false);
+                key.SetActive(true);
+            }
+            if (present.activeSelf && key.CompareTag("KeyPast"))//turn to past
+            {
+                present.SetActive(false);
+                past.SetActive(true);
+                anchorPast.SetActive(true);
+                key.SetActive(true);
+            }
+            else if (past.activeSelf && key.CompareTag("KeyPast"))//turn to present
+            {
+                past.SetActive(false);
+                present.SetActive(true);
+                anchorPast.SetActive(false);
+                key.SetActive(false);
+            }
+            if (present.activeSelf && key.CompareTag("Key"))//turn to past
+            {
+                present.SetActive(false);
+                past.SetActive(true);
+                anchorPast.SetActive(true);
+            }
+            else if (past.activeSelf && key.CompareTag("Key"))//turn to present
+            {
+                past.SetActive(false);
+                present.SetActive(true);
+                anchorPast.SetActive(false);
             }
 
         }
@@ -118,7 +159,7 @@ public class CharacterScript : MonoBehaviour
         }
         if (collision.gameObject.name == "Trap")
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            takeDamage(10);
         }
 
         if(collision.gameObject.tag == "Dart"){
