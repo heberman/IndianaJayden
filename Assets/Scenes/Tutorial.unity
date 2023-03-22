@@ -306,6 +306,7 @@ GameObject:
   - component: {fileID: 202447721}
   - component: {fileID: 202447720}
   - component: {fileID: 202447719}
+  - component: {fileID: 202447723}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -392,6 +393,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &202447723
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 202447718}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19352ce1ab8040e45820fcd2a57fc549, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _scanLineJitter: 0
+  _verticalJump: 0
+  _horizontalShake: 0
+  _colorDrift: 0
+  _shader: {fileID: 4800000, guid: 9af4cee7f78ccce47abe5141f0374d7a, type: 3}
 --- !u!1001 &302734073
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -772,12 +790,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pastSprite: {fileID: 21300000, guid: b3a2e26c8bce55e4f93c5d585a66bc19, type: 3}
   presentSprite: {fileID: 21300000, guid: 41d12aac8790fda46aa46ff86ef80813, type: 3}
-  futureSprite: {fileID: 21300000, guid: 4c717038593e1854bb832e8d2ffe8f94, type: 3}
   present: {fileID: 1134578101}
   past: {fileID: 364607752}
   pastMusic: {fileID: 8300000, guid: 56334e25d79c4d144ba183d59b96430e, type: 3}
   presentMusic: {fileID: 8300000, guid: 817e9168dab1171489164ffec8b972af, type: 3}
-  futureMusic: {fileID: 8300000, guid: 957d168911fa39847a42fc1f0b9384ca, type: 3}
   moveFactor: 0.3
 --- !u!82 &927171267
 AudioSource:
@@ -2111,6 +2127,14 @@ PrefabInstance:
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 626042591}
+    - target: {fileID: 6052385748734666393, guid: 698569eb28e65b948a6225eac4100be1, type: 3}
+      propertyPath: analogGlitch
+      value: 
+      objectReference: {fileID: 202447723}
+    - target: {fileID: 6052385748734666393, guid: 698569eb28e65b948a6225eac4100be1, type: 3}
+      propertyPath: glitchDuration
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 6052385748734666397, guid: 698569eb28e65b948a6225eac4100be1, type: 3}
       propertyPath: m_RootOrder
       value: 1

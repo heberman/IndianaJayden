@@ -32,7 +32,7 @@ public class CharacterScript : MonoBehaviour
     public float health = 100f;
 
     public AnalogGlitch analogGlitch;
-    public float glitchDuration = 0.5f;
+    public float glitchDuration = 0.2f;
 
     // Start is called before the first frame update
     void Start()
