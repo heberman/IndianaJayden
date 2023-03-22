@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 5035997084616343534}
   m_Layer: 0
   m_Name: FallingBlock
-  m_TagString: Untagged
+  m_TagString: BlockPresent
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -50,6 +50,7 @@ MonoBehaviour:
   fallSpeed: 50
   rigidBody: {fileID: 0}
   hasCollided: 0
+  character: {fileID: 0}
 --- !u!50 &5028862092590433870
 Rigidbody2D:
   serializedVersion: 4
