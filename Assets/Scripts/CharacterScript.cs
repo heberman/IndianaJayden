@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+
 public class CharacterScript : MonoBehaviour
 {
     public Rigidbody2D rigidBody;
@@ -34,6 +35,11 @@ public class CharacterScript : MonoBehaviour
     public AnalogGlitch analogGlitch;
     public float glitchDuration = 0.2f;
 
+    public List<GameObject> fBlocks;
+    
+
+    public bool isPresent;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -48,6 +54,18 @@ public class CharacterScript : MonoBehaviour
         {
             key.SetActive(false);
         }
+
+        fBlocks = new List<GameObject>(GameObject.FindGameObjectsWithTag("BlockPresent"));
+        fBlocks.AddRange(new List<GameObject>(GameObject.FindGameObjectsWithTag("BlockPast")));
+
+        foreach (GameObject block in fBlocks)
+        {
+            if (block.CompareTag("BlockPast"))
+            {
+                block.SetActive(false);
+            }
+        }
+        isPresent = true;
         
         
     }
@@ -82,6 +100,7 @@ public class CharacterScript : MonoBehaviour
                 past.SetActive(true);
                 anchorPast.SetActive(true) ;
                 key.SetActive(false);
+                isPresent = false;
             }
             else if (past.activeSelf && key.CompareTag("KeyPresent"))//turn to present
             {
@@ -90,6 +109,7 @@ public class CharacterScript : MonoBehaviour
                 present.SetActive(true);
                 anchorPast.SetActive(false);
                 key.SetActive(true);
+                isPresent = true;
             }
             if (present.activeSelf && key.CompareTag("KeyPast"))//turn to past
             {
@@ -98,7 +118,9 @@ public class CharacterScript : MonoBehaviour
                 past.SetActive(true);
                 anchorPast.SetActive(true);
                 key.SetActive(true);
+                isPresent = false;
             }
+
             else if (past.activeSelf && key.CompareTag("KeyPast"))//turn to present
             {
                 StartCoroutine(Glitch());
@@ -106,6 +128,8 @@ public class CharacterScript : MonoBehaviour
                 present.SetActive(true);
                 anchorPast.SetActive(false);
                 key.SetActive(false);
+                isPresent = true;
+
             }
             if (present.activeSelf && key.CompareTag("Key"))//turn to past
             {
@@ -113,6 +137,7 @@ public class CharacterScript : MonoBehaviour
                 present.SetActive(false);
                 past.SetActive(true);
                 anchorPast.SetActive(true);
+                isPresent = false;
             }
             else if (past.activeSelf && key.CompareTag("Key"))//turn to present
             {
@@ -120,6 +145,29 @@ public class CharacterScript : MonoBehaviour
                 past.SetActive(false);
                 present.SetActive(true);
                 anchorPast.SetActive(false);
+                isPresent = true;
+
+            }
+
+        }
+
+        foreach (GameObject block in fBlocks)
+        {
+            if (block.CompareTag("BlockPresent") && present.activeSelf)
+            {
+                block.SetActive(true);
+            }
+            else if (block.CompareTag("BlockPresent") && !present.activeSelf)
+            {
+                block.SetActive(false);
+            }
+            else if (block.CompareTag("BlockPast") && past.activeSelf)
+            {
+                block.SetActive(true);
+            }
+            else if (block.CompareTag("BlockPast") && !past.activeSelf)
+            {
+                block.SetActive(false);
             }
 
         }

@@ -10,11 +10,14 @@ public class GrappleScript : MonoBehaviour
     public bool grappling;
     private Animator animator;
 
+    public CharacterScript character;
+
     // Start is called before the first frame update
     void Start()
     {
         distanceJoint.enabled = false;
         animator = GetComponent<Animator>();
+        character = GameObject.FindGameObjectWithTag("Character").GetComponent<CharacterScript>(); 
     }
 
     // Update is called once per frame
@@ -30,6 +33,7 @@ public class GrappleScript : MonoBehaviour
             grappling = true;
             animator.SetBool("isGrappling", true);
             animator.SetBool("isJumping", false);
+            character.jumpReset = true;
         }
         else if (Input.GetKeyUp(KeyCode.Space))
         {

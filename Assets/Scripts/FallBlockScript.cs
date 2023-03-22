@@ -13,11 +13,14 @@ public class FallBlockScript : MonoBehaviour
     private float timer;
     public bool hasCollided;
 
+    public CharacterScript character;
+
 
     // Start is called before the first frame update
     void Start()
     {
         rigidBody = GetComponent<Rigidbody2D>();
+        character = GameObject.FindGameObjectWithTag("Character").GetComponent<CharacterScript>();
     }
 
     // Update is called once per frame
@@ -31,6 +34,7 @@ public class FallBlockScript : MonoBehaviour
         }
         else if (hasCollided && timer >= 5)
         {
+            character.fBlocks.Remove(gameObject);
             Destroy(gameObject);
             hasCollided = false;
         }
