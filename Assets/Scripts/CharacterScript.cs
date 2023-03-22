@@ -20,13 +20,15 @@ public class CharacterScript : MonoBehaviour
     //Q = Past, W = Present, E = Future
     public GameObject present;
     public GameObject past;
+    public AnalogGlitch analogGlitch;
     public bool isPresent;
 
     private Animator animator;
     
     public Image healthBar;
     public float health = 100f;
-	
+    public float glitchDuration = 0.5f;
+        
     // Start is called before the first frame update
     void Start()
     {
@@ -58,13 +60,17 @@ public class CharacterScript : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Q))
         {
+            analogGlitch.scanLineJitter = 0.0f;
+            analogGlitch.colorDrift = 0.0f;
             if (present.activeSelf)
             {
+                StartCoroutine(Glitch());
                 present.SetActive(false);
                 past.SetActive(true);
             }
             else if (past.activeSelf)
             {
+                StartCoroutine(Glitch());
                 past.SetActive(false);
                 present.SetActive(true);
             }
@@ -98,6 +104,23 @@ public class CharacterScript : MonoBehaviour
             float movement = speedDif * acc;
             rigidBody.AddForce(movement * Vector2.right);
         }
+    }
+
+    IEnumerator Glitch()
+    {
+        float startTime = Time.realtimeSinceStartup;
+        float initialJitter = analogGlitch.scanLineJitter;
+        float initialColorDrift = analogGlitch.colorDrift;
+
+        while (Time.realtimeSinceStartup < startTime + glitchDuration)
+        {
+            analogGlitch.scanLineJitter = 0.5f;
+            analogGlitch.colorDrift = 0.3f;
+            yield return new WaitForSeconds(glitchDuration);
+        }
+
+        analogGlitch.scanLineJitter = initialJitter;
+        analogGlitch.colorDrift = initialColorDrift;
     }
 
     public void Flip()
