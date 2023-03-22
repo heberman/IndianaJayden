@@ -19,7 +19,6 @@ public class CharacterScript : MonoBehaviour
 
     //Q = Past, W = Present, E = Future
     public GameObject present;
-    public GameObject future;
     public GameObject past;
     public bool isPresent;
 
@@ -34,7 +33,6 @@ public class CharacterScript : MonoBehaviour
         animator = GetComponent<Animator>();
 	    rigidBody = GetComponent<Rigidbody2D>();
         jumpReset = true;
-        future.SetActive(false);
         past.SetActive(false);
         isPresent = true;
         
@@ -57,26 +55,19 @@ public class CharacterScript : MonoBehaviour
             jumpReset = false;
         }
 
-        if(Input.GetKeyDown(KeyCode.E))
-        {
-            present.SetActive(false);
-            past.SetActive(false);
-            future.SetActive(true);
-        }
-
-        if(Input.GetKeyDown(KeyCode.W))
-        {
-            future.SetActive(false);
-            past.SetActive(false);
-            present.SetActive(true);
-
-        }
 
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            present.SetActive(false);
-            future.SetActive(false);
-            past.SetActive(true);
+            if (present.activeSelf)
+            {
+                present.SetActive(false);
+                past.SetActive(true);
+            }
+            else if (past.activeSelf)
+            {
+                past.SetActive(false);
+                present.SetActive(true);
+            }
 
         }
 

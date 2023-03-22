@@ -8,6 +8,9 @@ public class BackgroundScript : MonoBehaviour
     public Sprite presentSprite;
     public Sprite futureSprite;
 
+    public GameObject present;
+    public GameObject past;
+
     public AudioClip pastMusic;
     public AudioClip presentMusic;
     public AudioClip futureMusic;
@@ -35,27 +38,23 @@ public class BackgroundScript : MonoBehaviour
 
         if (Input.GetKeyDown("q"))
         {
-            GetComponent<SpriteRenderer>().sprite = pastSprite;
-            float time = GetComponent<AudioSource>().time;
-            GetComponent<AudioSource>().clip = pastMusic;
-            GetComponent<AudioSource>().time = time;
-            GetComponent<AudioSource>().Play();
+            if (past.activeSelf)
+            {
+                GetComponent<SpriteRenderer>().sprite = pastSprite;
+                float time = GetComponent<AudioSource>().time;
+                GetComponent<AudioSource>().clip = pastMusic;
+                GetComponent<AudioSource>().time = time;
+                GetComponent<AudioSource>().Play();
+            }
+            else if (present.activeSelf)
+            {
+                GetComponent<SpriteRenderer>().sprite = presentSprite;
+                float time = GetComponent<AudioSource>().time;
+                GetComponent<AudioSource>().clip = presentMusic;
+                GetComponent<AudioSource>().time = time;
+                GetComponent<AudioSource>().Play();
+            }
         }
-        if (Input.GetKeyDown("w"))
-        {
-            GetComponent<SpriteRenderer>().sprite = presentSprite;
-            float time = GetComponent<AudioSource>().time;
-            GetComponent<AudioSource>().clip = presentMusic;
-            GetComponent<AudioSource>().time = time;
-            GetComponent<AudioSource>().Play();
-        }
-        if (Input.GetKeyDown("e"))
-        {
-            GetComponent<SpriteRenderer>().sprite = futureSprite;
-            float time = GetComponent<AudioSource>().time;
-            GetComponent<AudioSource>().clip = futureMusic;
-            GetComponent<AudioSource>().time = time;
-            GetComponent<AudioSource>().Play();
-        }
+
     }
 }
