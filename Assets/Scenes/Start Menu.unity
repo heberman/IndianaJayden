@@ -632,7 +632,7 @@ MonoBehaviour:
     Left/Right/Jump
     = [Arrow Keys]
 
-    Past/Present  = [Q/W]
+    Change to Past/Present  = [Q]
 
     Grapple = [Space]
 
