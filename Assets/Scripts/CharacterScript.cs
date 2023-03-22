@@ -81,7 +81,7 @@ public class CharacterScript : MonoBehaviour
         }
         horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
         grapple = grappleScript.grappling;
-        if (Input.GetKeyDown(KeyCode.UpArrow) && jumpReset)
+        if ((Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W)) && jumpReset)
         {
             animator.SetBool("isJumping", true);
             rigidBody.velocity = Vector2.up * grav;
@@ -89,7 +89,7 @@ public class CharacterScript : MonoBehaviour
         }
 
 
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (Input.GetKeyDown(KeyCode.LeftShift))
         {
             analogGlitch.scanLineJitter = 0.0f;
             analogGlitch.colorDrift = 0.0f;
