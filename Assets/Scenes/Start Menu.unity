@@ -564,11 +564,11 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 1de44c9dbec42fd44a32ddf07890a491, type: 3}
-    m_FontSize: 70
+    m_FontSize: 130
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
-    m_MaxSize: 70
+    m_MaxSize: 130
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -812,7 +812,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 20
+    m_FontSize: 65
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -823,25 +823,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: '
-
-    Tutorial - [A]
-
-    Level 1 - [B]
-
-    Menu - [Esc]
-
-
-    CONTROLS:
-
-    Left/Right/Jump
-    = [Arrow Keys]
-
-    Change to Past/Present  = [Q]
-
-    Grapple = [Space]
-
-'
+  m_Text: "[LEVEL SELECT]\n{B} = Level 1\n{Esc} = Menu\n\n[CONTROLS]\n{Arrow Keys}
+    = Left/Right/Jump \n{Q} = Change to Past/Present \n{Space} = Grapple\n"
 --- !u!222 &1366454458
 CanvasRenderer:
   m_ObjectHideFlags: 0

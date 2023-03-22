@@ -88,7 +88,7 @@ public class CharacterScript : MonoBehaviour
         }
 
 
-        if (Input.GetKeyDown(KeyCode.LeftShift))
+        if (Input.GetKeyDown(KeyCode.Q))
         {
             analogGlitch.scanLineJitter = 0.0f;
             analogGlitch.colorDrift = 0.0f;

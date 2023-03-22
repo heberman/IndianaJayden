@@ -119,7 +119,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 22
+  controlID: 90
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -144,7 +144,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 23
+  controlID: 91
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -169,7 +169,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 24
+  controlID: 92
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -189,8 +189,8 @@ MonoBehaviour:
     y: 0
     width: 237
     height: 393.5
-  m_MinSize: {x: 201, y: 221}
-  m_MaxSize: {x: 4001, y: 4021}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 13}
   m_Panes:
   - {fileID: 13}
@@ -319,22 +319,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets
+    - Assets/Prefabs
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets
+  - Assets/Prefabs
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\Dylan\Desktop\IndianaJayden
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 43.5}
-    m_SelectedIDs: c4610000
-    m_LastClickedID: 25028
-    m_ExpandedIDs: 00000000c46100000662000000ca9a3bffffff7f
+    m_SelectedIDs: 54620000
+    m_LastClickedID: 25172
+    m_ExpandedIDs: 000000001c6200005e62000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -449,9 +449,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: f48b0000
-      m_LastClickedID: 35828
-      m_ExpandedIDs: 32ceffff78ceffff78d1ffff22d2ffff88d2ffff1cd3ffff20d3ffffdad5ffff72eaffff26f1ffffe8f1ffff2ef2ffff32f5ffffe0f5ffff4af6ffffcef6ffffdaf6fffffaf9ffff10fbffff428100005281000038880000e88b0000028c0000
+      m_SelectedIDs: 
+      m_LastClickedID: 0
+      m_ExpandedIDs: 82ccffffcaccffffcacfffff74d0ffffd8d0ffff5cd1ffff68d1ffffc2e5ffff4ce7fffff6e9ffff0aeeffff32f5ffffeaf9ffff10fbffff108300001c830000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -530,7 +530,7 @@ MonoBehaviour:
       floating: 0
       collapsed: 0
       displayed: 1
-      snapOffset: {x: 0, y: 24.8}
+      snapOffset: {x: 0, y: 25}
       snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 0
       id: unity-scene-view-toolbar
@@ -738,8 +738,8 @@ MonoBehaviour:
       containerId: overlay-toolbar__top
       floating: 0
       collapsed: 0
-      displayed: 0
-      snapOffset: {x: 0, y: 24.8}
+      displayed: 1
+      snapOffset: {x: 0, y: 25}
       snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 0
       id: Scene View/Tilemap Focus
@@ -757,7 +757,7 @@ MonoBehaviour:
   m_Position:
     m_Target: {x: 853.168, y: 341.79483, z: -8.768568}
     speed: 2
-    m_Value: {x: 853.168, y: 341.79483, z: -8.768568}
+    m_Value: {x: 15.740001, y: 0.07000017, z: 2.1423657}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -810,7 +810,7 @@ MonoBehaviour:
   m_Size:
     m_Target: 475.1229
     speed: 2
-    m_Value: 475.1229
+    m_Value: 27.369904
   m_Ortho:
     m_Target: 1
     speed: 2
