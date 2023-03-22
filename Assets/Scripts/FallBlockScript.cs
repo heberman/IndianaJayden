@@ -46,6 +46,7 @@ public class FallBlockScript : MonoBehaviour
         {
             hasCollided = true;
             timer = 0;
+            character.jumpReset = true;
         }
     }
 }
