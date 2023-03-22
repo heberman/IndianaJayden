@@ -219,7 +219,7 @@ RectTransform:
   - {fileID: 1107690277}
   - {fileID: 626042590}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -292,7 +292,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &202447718
 GameObject:
@@ -581,7 +581,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7542795958559216149, guid: 320d4eff720d64da8bafa6590daf60e3, type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7542795958559216149, guid: 320d4eff720d64da8bafa6590daf60e3, type: 3}
       propertyPath: m_LocalPosition.x
@@ -985,7 +985,7 @@ PrefabInstance:
       objectReference: {fileID: 1134578101}
     - target: {fileID: 2776059348912319694, guid: 6be146e08ab1b8044b5e1d47b41baad4, type: 3}
       propertyPath: m_RootOrder
-      value: 13
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 2776059348912319694, guid: 6be146e08ab1b8044b5e1d47b41baad4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1054,7 +1054,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4149897126408663605, guid: b1e3e1e7b68254814bd246a76061dc87, type: 3}
       propertyPath: m_RootOrder
-      value: 12
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 4149897126408663605, guid: b1e3e1e7b68254814bd246a76061dc87, type: 3}
       propertyPath: m_LocalScale.x
@@ -4246,7 +4246,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4149897126408663605, guid: b1e3e1e7b68254814bd246a76061dc87, type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 4149897126408663605, guid: b1e3e1e7b68254814bd246a76061dc87, type: 3}
       propertyPath: m_LocalScale.x
@@ -4307,7 +4307,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1283587053515494072, guid: c32c7860be597494ab82a70673e1f5a6, type: 3}
       propertyPath: m_RootOrder
-      value: 10
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 1283587053515494072, guid: c32c7860be597494ab82a70673e1f5a6, type: 3}
       propertyPath: m_LocalPosition.x
