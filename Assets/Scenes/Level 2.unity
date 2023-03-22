@@ -712,7 +712,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 41d12aac8790fda46aa46ff86ef80813, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4c717038593e1854bb832e8d2ffe8f94, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -735,8 +735,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83dbabcd7b7a59a4d9151a5b84e2e2f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pastSprite: {fileID: 21300000, guid: b3a2e26c8bce55e4f93c5d585a66bc19, type: 3}
-  presentSprite: {fileID: 21300000, guid: 41d12aac8790fda46aa46ff86ef80813, type: 3}
+  pastSprite: {fileID: 21300000, guid: 41d12aac8790fda46aa46ff86ef80813, type: 3}
+  presentSprite: {fileID: 21300000, guid: 4c717038593e1854bb832e8d2ffe8f94, type: 3}
   present: {fileID: 1134578101}
   past: {fileID: 364607752}
   pastMusic: {fileID: 8300000, guid: 56334e25d79c4d144ba183d59b96430e, type: 3}
