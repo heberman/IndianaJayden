@@ -30,7 +30,10 @@ public class CharacterScript : MonoBehaviour
     
     public Image healthBar;
     public float health = 100f;
-	
+
+    public AnalogGlitch analogGlitch;
+    public float glitchDuration = 0.5f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -69,8 +72,12 @@ public class CharacterScript : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Q))
         {
+            analogGlitch.scanLineJitter = 0.0f;
+            analogGlitch.colorDrift = 0.0f;
+
             if (present.activeSelf && key.CompareTag("KeyPresent"))//turn to past
             {
+                StartCoroutine(Glitch());
                 present.SetActive(false);
                 past.SetActive(true);
                 anchorPast.SetActive(true) ;
@@ -78,6 +85,7 @@ public class CharacterScript : MonoBehaviour
             }
             else if (past.activeSelf && key.CompareTag("KeyPresent"))//turn to present
             {
+                StartCoroutine(Glitch());
                 past.SetActive(false);
                 present.SetActive(true);
                 anchorPast.SetActive(false);
@@ -85,6 +93,7 @@ public class CharacterScript : MonoBehaviour
             }
             if (present.activeSelf && key.CompareTag("KeyPast"))//turn to past
             {
+                StartCoroutine(Glitch());
                 present.SetActive(false);
                 past.SetActive(true);
                 anchorPast.SetActive(true);
@@ -92,6 +101,7 @@ public class CharacterScript : MonoBehaviour
             }
             else if (past.activeSelf && key.CompareTag("KeyPast"))//turn to present
             {
+                StartCoroutine(Glitch());
                 past.SetActive(false);
                 present.SetActive(true);
                 anchorPast.SetActive(false);
@@ -99,12 +109,14 @@ public class CharacterScript : MonoBehaviour
             }
             if (present.activeSelf && key.CompareTag("Key"))//turn to past
             {
+                StartCoroutine(Glitch());
                 present.SetActive(false);
                 past.SetActive(true);
                 anchorPast.SetActive(true);
             }
             else if (past.activeSelf && key.CompareTag("Key"))//turn to present
             {
+                StartCoroutine(Glitch());
                 past.SetActive(false);
                 present.SetActive(true);
                 anchorPast.SetActive(false);
@@ -139,6 +151,23 @@ public class CharacterScript : MonoBehaviour
             float movement = speedDif * acc;
             rigidBody.AddForce(movement * Vector2.right);
         }
+    }
+
+    IEnumerator Glitch()
+    {
+        float startTime = Time.realtimeSinceStartup;
+        float initialJitter = analogGlitch.scanLineJitter;
+        float initialColorDrift = analogGlitch.colorDrift;
+
+        while (Time.realtimeSinceStartup < startTime + glitchDuration)
+        {
+            analogGlitch.scanLineJitter = 0.5f;
+            analogGlitch.colorDrift = 0.3f;
+            yield return new WaitForSeconds(glitchDuration);
+        }
+
+        analogGlitch.scanLineJitter = initialJitter;
+        analogGlitch.colorDrift = initialColorDrift;
     }
 
     public void Flip()
