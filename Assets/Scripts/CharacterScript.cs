@@ -36,9 +36,11 @@ public class CharacterScript : MonoBehaviour
     public float glitchDuration = 0.2f;
 
     public List<GameObject> fBlocks;
+
+
     
 
-    public bool isPresent;
+
 
     // Start is called before the first frame update
     void Start()
@@ -65,7 +67,6 @@ public class CharacterScript : MonoBehaviour
                 block.SetActive(false);
             }
         }
-        isPresent = true;
         
         
     }
@@ -80,7 +81,7 @@ public class CharacterScript : MonoBehaviour
         }
         horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
         grapple = grappleScript.grappling;
-        if (Input.GetKeyDown(KeyCode.UpArrow) && jumpReset)
+        if ((Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W)) && jumpReset)
         {
             animator.SetBool("isJumping", true);
             rigidBody.velocity = Vector2.up * grav;
@@ -88,7 +89,7 @@ public class CharacterScript : MonoBehaviour
         }
 
 
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (Input.GetKeyDown(KeyCode.LeftShift))
         {
             analogGlitch.scanLineJitter = 0.0f;
             analogGlitch.colorDrift = 0.0f;
@@ -100,7 +101,6 @@ public class CharacterScript : MonoBehaviour
                 past.SetActive(true);
                 anchorPast.SetActive(true) ;
                 key.SetActive(false);
-                isPresent = false;
             }
             else if (past.activeSelf && key.CompareTag("KeyPresent"))//turn to present
             {
@@ -109,7 +109,6 @@ public class CharacterScript : MonoBehaviour
                 present.SetActive(true);
                 anchorPast.SetActive(false);
                 key.SetActive(true);
-                isPresent = true;
             }
             if (present.activeSelf && key.CompareTag("KeyPast"))//turn to past
             {
@@ -118,7 +117,6 @@ public class CharacterScript : MonoBehaviour
                 past.SetActive(true);
                 anchorPast.SetActive(true);
                 key.SetActive(true);
-                isPresent = false;
             }
 
             else if (past.activeSelf && key.CompareTag("KeyPast"))//turn to present
@@ -128,7 +126,6 @@ public class CharacterScript : MonoBehaviour
                 present.SetActive(true);
                 anchorPast.SetActive(false);
                 key.SetActive(false);
-                isPresent = true;
 
             }
             if (present.activeSelf && key.CompareTag("Key"))//turn to past
@@ -137,7 +134,6 @@ public class CharacterScript : MonoBehaviour
                 present.SetActive(false);
                 past.SetActive(true);
                 anchorPast.SetActive(true);
-                isPresent = false;
             }
             else if (past.activeSelf && key.CompareTag("Key"))//turn to present
             {
@@ -145,7 +141,6 @@ public class CharacterScript : MonoBehaviour
                 past.SetActive(false);
                 present.SetActive(true);
                 anchorPast.SetActive(false);
-                isPresent = true;
 
             }
 
@@ -183,7 +178,9 @@ public class CharacterScript : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Escape))
         {
             SceneManager.LoadScene("Start Menu");
-        } 
+        }
+
+
     }
 
     public void FixedUpdate()
@@ -244,16 +241,12 @@ public class CharacterScript : MonoBehaviour
         }
     }
 
+
+
     private void takeDamage(float damage){
         health -= damage;
         healthBar.fillAmount = health/100;
     }
 
-    //private void OnCollisionExit2D(Collision2D collision)
-    //{
-    //    if (collision.gameObject.name == "Trap")
-    //    {
-    //        //collision.gameObject.GetComponent<TrapScript>().isTouching = false; 
-    //    }
-    //} ignore for now
+
 }
